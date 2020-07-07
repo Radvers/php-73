@@ -115,14 +115,10 @@ class BasicsTest extends TestCase
         $foo = $foo * 1.3;
         $this->assertIsFloat($foo);
 
-        /**
-         * Если не удалить текст из строки, то тест выкидывает ошибку: A non well formed numeric value encountered
-         * Поэтому изменил содержание строки в этом и последующем ассерте. Использую php 7.4.
-         */
-        $foo = 5 * '10';
-        $this->assertEquals(50, $foo);
+        $foo = 5 * (int)'10 Little Piggies';
+        $this->assertIsInt($foo);
 
-        $foo = 5 * '10';
+        $foo = 5 * (int)'10 Small Pigs';
         $this->assertIsInt($foo);
     }
 }
